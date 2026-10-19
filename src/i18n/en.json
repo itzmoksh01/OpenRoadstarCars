@@ -1,8 +1,8 @@
 {
-  "game.title": "ROADSTER / 03",
-  "game.eyebrow": "UNOFFICIAL OPEN-SOURCE STUNT LAB",
+  "game.title": "OPEN ROADSTER / 03",
+  "game.eyebrow": "OPEN ROADSTER CARS · UNOFFICIAL STUNT LAB",
   "game.tagline": "Three ways to bend the track. One loop to master.",
-  "game.disclaimer": "Fan-made concept · Tesla marks and references belong to their owners · not endorsed",
+  "game.disclaimer": "Fan-made concept · Tesla references belong to their owners · not endorsed",
   "boot.loading": "Loading vehicle systems",
   "menu.drive": "Drive",
   "menu.continue": "Resume run",

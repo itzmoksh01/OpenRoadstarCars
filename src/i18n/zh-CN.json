@@ -1,8 +1,8 @@
 {
-  "game.title": "ROADSTER / 03",
-  "game.eyebrow": "非官方开源特技实验场",
+  "game.title": "OPEN ROADSTER / 03",
+  "game.eyebrow": "OPEN ROADSTER CARS · 非官方特技实验场",
   "game.tagline": "三种方式突破赛道，一圈掌握全部技巧。",
-  "game.disclaimer": "粉丝概念作品 · Tesla 商标与资料归其所有者所有 · 无任何背书",
+  "game.disclaimer": "粉丝概念作品 · Tesla 资料归其所有者所有 · 无任何背书",
   "boot.loading": "正在加载车辆系统",
   "menu.drive": "开始驾驶",
   "menu.continue": "继续驾驶",
