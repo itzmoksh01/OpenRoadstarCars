@@ -53,6 +53,7 @@ async function boot(): Promise<void> {
     play: () => startRun(!save.data.tutorialDone),
     restart: () => startRun(false),
     resume,
+    selectMode: mode => game?.setVehicleMode(mode),
     quit: () => {
       game?.toTitle()
       ui.show('title')
@@ -131,6 +132,12 @@ async function boot(): Promise<void> {
   })
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) pause()
+  })
+  window.addEventListener('keydown', event => {
+    if (event.code !== 'Escape' || event.repeat) return
+    lockLostAt = performance.now()
+    if (g.mode === 'playing') pause()
+    else if (g.mode === 'paused' && ui.screen === 'pause') resume()
   })
   window.addEventListener('game:pause', pause)
   canvas.addEventListener('click', () => {

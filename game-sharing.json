@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 2,
+  "title": "Roadster / 03 — Three Modes",
+  "description": "An unofficial open-source browser stunt-driving vertical slice with Performance, Thrust and Rocket modes.",
+  "defaultCaptions": {
+    "x": "Roadster / 03 — three stunt modes, one neon loop.",
+    "facebook": "Roadster / 03 — an unofficial open-source browser stunt-driving game.",
+    "reddit": "I built a browser stunt-driving vertical slice with three Tesla Roadster-inspired gameplay identities.",
+    "discord": "Roadster / 03 — Performance, Thrust and Rocket modes."
+  },
+  "assets": {
+    "og": "assets/share/og.png",
+    "favicon": "assets/share/favicon.png"
+  }
+}

@@ -1,62 +1,51 @@
-/**
- * All gameplay tuning in one place. Change numbers here before touching game code; tests read
- * the same values so rule changes stay covered.
- */
+export type VehicleMode = 'performance' | 'thrust' | 'rocket'
+
 export const DEFAULT_CONFIG = {
   run: {
-    seconds: 150,
+    seconds: 180,
     lives: 3,
-    /** Seconds of invulnerability after a hit. */
     invulnerable: 1.6,
-    /** Falling below this height costs a life and respawns at the last checkpoint. */
-    killY: -18,
+    killY: -12,
   },
   score: {
-    core: 100,
-    /** Consecutive pickups within `comboWindow` seconds raise the multiplier up to `comboMax`. */
-    comboWindow: 3.5,
-    comboMax: 5,
-    /** Bonus per second left on the clock when every core is collected. */
-    timeBonus: 25,
-    lifeBonus: 500,
+    core: 250,
+    comboWindow: 4.2,
+    comboMax: 6,
+    timeBonus: 30,
+    lifeBonus: 600,
   },
   player: {
-    radius: 0.42,
-    halfHeight: 0.5,
+    radius: 0.82,
+    halfHeight: 0.48,
     walkSpeed: 7,
     sprintSpeed: 11,
     acceleration: 60,
-    airControl: 0.45,
+    gravity: -26,
+    lowJumpGravity: -52,
     jumpSpeed: 10.5,
-    gravity: -30,
-    /** Extra gravity when the jump button is released early, for variable jump height. */
-    lowJumpGravity: -58,
-    maxFall: -40,
-    coyoteTime: 0.12,
+    maxFall: -34,
+    airControl: 0.45,
     jumpBuffer: 0.14,
     dashSpeed: 22,
     dashTime: 0.16,
     dashCooldown: 0.9,
     turnSpeed: 14,
   },
+  vehicle: {
+    performance: { topSpeed: 16, grip: 10, steering: 8, airControl: 0.35, boostSpeed: 28, boostDuration: 0.5, boostCooldown: 2.4, thrusterLift: 0 },
+    thrust: { topSpeed: 19, grip: 8, steering: 8.5, airControl: 0.48, boostSpeed: 38, boostDuration: 0.55, boostCooldown: 1.5, thrusterLift: 5 },
+    rocket: { topSpeed: 14, grip: 6, steering: 6.5, airControl: 0.9, boostSpeed: 30, boostDuration: 0.8, boostCooldown: 1.1, thrusterLift: 16 },
+  },
   camera: {
-    distance: 6.4,
-    height: 2.4,
-    minPitch: -0.35,
-    maxPitch: 1.1,
-    follow: 10,
-    fov: 62,
+    distance: 10,
+    height: 3.4,
+    minPitch: -0.3,
+    maxPitch: 1.0,
+    follow: 8,
+    fov: 64,
   },
-  drones: {
-    speed: 3.2,
-    radius: 0.7,
-    /** Drones speed up as the clock runs down. */
-    rageSpeed: 5,
-    rageAt: 45,
-  },
+  drones: { speed: 3.2, radius: 0.7, rageSpeed: 5, rageAt: 45 },
 } as const
 
-// Gameplay always reads active values here. Source defaults remain immutable for
-// Tweak Reset and Save with Manus; Apply never writes source or local storage.
 type MutableConfig<T> = { -readonly [K in keyof T]: T[K] extends number ? number : T[K] extends object ? MutableConfig<T[K]> : T[K] }
 export const CONFIG: MutableConfig<typeof DEFAULT_CONFIG> = structuredClone(DEFAULT_CONFIG)

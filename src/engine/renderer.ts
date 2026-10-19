@@ -66,7 +66,7 @@ export class Renderer {
     const size = this.gl.getSize(new THREE.Vector2())
     this.composer = new EffectComposer(this.gl)
     this.composer.addPass(new RenderPass(scene, camera))
-    this.bloom = new UnrealBloomPass(size, 0.45, 0.3, 1.6)
+    this.bloom = new UnrealBloomPass(size, 0.2, 0.22, 1.8)
     this.composer.addPass(this.bloom)
     this.composer.addPass(new OutputPass())
     this.composer.setSize(size.x, size.y)

@@ -1,6 +1,37 @@
 {
   "version": 2,
-  "groups": {},
+  "groups": {
+    "models": {
+      "name": "Models",
+      "order": 10
+    },
+    "share": {
+      "name": "Share",
+      "order": 20
+    }
+  },
   "bundles": {},
-  "assets": {}
+  "assets": {
+    "assets/models/roadster-base.glb": {
+      "path": "/manus-storage/game/sha256/2c6d0ae51b8a9ff183662ee2eb59c9a0d1b8cc6ef12daec90234a5d89f162424.glb",
+      "sha256": "sha256:2c6d0ae51b8a9ff183662ee2eb59c9a0d1b8cc6ef12daec90234a5d89f162424",
+      "size": 2400444,
+      "assetType": "model",
+      "groupId": "models"
+    },
+    "assets/share/favicon.png": {
+      "path": "/manus-storage/game/sha256/dad8118a37dda4829c1c167234989250560a792303d41a14a6c546e8d802f150.png",
+      "sha256": "sha256:dad8118a37dda4829c1c167234989250560a792303d41a14a6c546e8d802f150",
+      "size": 3124,
+      "assetType": "image",
+      "groupId": "share"
+    },
+    "assets/share/og.png": {
+      "path": "/manus-storage/game/sha256/6c39bc80b7463be15c5015e572801a08e414be65ec8d5e7d76eb5efe002535a7.png",
+      "sha256": "sha256:6c39bc80b7463be15c5015e572801a08e414be65ec8d5e7d76eb5efe002535a7",
+      "size": 4956488,
+      "assetType": "image",
+      "groupId": "share"
+    }
+  }
 }

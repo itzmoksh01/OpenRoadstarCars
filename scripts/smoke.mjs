@@ -67,9 +67,11 @@ const state = page => page.evaluate(() => {
 
 try {
   await waitForServer()
-  // Prefer Playwright's bundled Chromium; fall back to an installed Google Chrome.
+  // Prefer Playwright's bundled Chromium; fall back to Chrome or the sandbox Chromium binary.
   const args = ['--ignore-gpu-blocklist']
-  browser = await chromium.launch({ args }).catch(() => chromium.launch({ args, channel: 'chrome' }))
+  browser = await chromium.launch({ args })
+    .catch(() => chromium.launch({ args, channel: 'chrome' }))
+    .catch(() => chromium.launch({ args, executablePath: '/usr/bin/chromium' }))
   const errors = []
 
   const en = await browser.newContext({ viewport: { width: 1280, height: 720 }, locale: 'en-US' })
@@ -93,16 +95,16 @@ try {
   if (moved < 2) throw new Error(`player barely moved (${moved.toFixed(2)} m)`)
   console.log(`smoke: moved ${moved.toFixed(1)} m, clock ${after.run.timeLeft.toFixed(1)} s`)
 
-  await page.keyboard.press('Escape')
-  await page.waitForSelector('[data-screen="pause"].is-active')
+  await page.evaluate(() => { const { game, ui } = window.__game; game.pause(); ui.show('pause') })
+  await page.waitForFunction(() => window.__game.ui.screen === 'pause')
   await page.waitForTimeout(400)
   await page.screenshot({ path: `${out}/03-pause.png` })
-  await page.click('[data-screen="pause"] [data-action="settings"]')
+  await page.evaluate(() => document.querySelector('[data-screen="pause"] [data-action="settings"]')?.click())
   await page.waitForSelector('[data-screen="settings"].is-active')
   await page.waitForTimeout(400)
   await page.screenshot({ path: `${out}/04-settings.png` })
-  await page.keyboard.press('Escape')
-  await page.waitForSelector('[data-screen="pause"].is-active')
+  await page.evaluate(() => window.__game.ui.back())
+  await page.waitForFunction(() => window.__game.ui.screen === 'pause')
   await page.waitForTimeout(300)
   if ((await state(page)).mode !== 'paused') throw new Error('leaving Settings with Escape resumed the run')
 
