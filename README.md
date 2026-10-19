@@ -7,7 +7,7 @@
 <p align="center"><strong>A browser-first stunt-driving lab built around three radically different roadster identities.</strong></p>
 
 <p align="center">
-  <a href="#play"><img src="https://img.shields.io/badge/play-live_preview-61f6ff?style=flat-square" alt="Live preview" /></a>
+  <a href="https://roadsterstun-7achperf.manus.game"><img src="https://img.shields.io/badge/play-live_preview-61f6ff?style=flat-square" alt="Live preview" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-ff4dd8?style=flat-square" alt="MIT license" /></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-welcome-ffb347?style=flat-square" alt="Contributions welcome" /></a>
   <a href="https://threejs.org/"><img src="https://img.shields.io/badge/engine-Three.js-111827?style=flat-square" alt="Three.js" /></a>
@@ -18,6 +18,8 @@
 ## Play
 
 The project is delivered as a static browser game and is designed for desktop Chrome, Android Chrome, iOS Safari/Chrome and future PC packaging.
+
+**Live build:** [roadsterstun-7achperf.manus.game](https://roadsterstun-7achperf.manus.game)
 
 **Local development**
 
